@@ -76,8 +76,8 @@ index bc5843b13701..87fbce653d81 100644
 +            }
          }
      }
- 
-@@ -1483,6 +1485,41 @@ static int libxl__device_pci_reset(libxl__gc *gc, unsigned int domain, unsigned
+
+@@ -1548,6 +1548,41 @@ static int libxl__device_pci_reset(libxl__gc *gc, unsigned int domain, unsigned
      return -1;
  }
  

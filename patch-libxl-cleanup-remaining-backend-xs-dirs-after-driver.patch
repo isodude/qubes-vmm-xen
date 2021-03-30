@@ -34,9 +34,10 @@ index 0381c5d50947..3d2051354f6b 100644
 +             * directory if empty already.
 +             */
 +            libxl__xs_path_cleanup(gc, t, be_path);
-         }
- 
-         rc = libxl__xs_transaction_commit(gc, &t);
+         } else if (domid == LIBXL_TOOLSTACK_DOMID && !libxl_only) {
+             /*
+              * Then, toolstack domain is in charge of removing the parent
+
 -- 
 2.25.4
 

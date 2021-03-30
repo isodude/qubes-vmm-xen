@@ -28,9 +28,9 @@ diff --git a/docs/misc/xen-command-line.pandoc b/docs/misc/xen-command-line.pand
 index 4ae9391fcd3d..1f754d3ec1d7 100644
 --- a/docs/misc/xen-command-line.pandoc
 +++ b/docs/misc/xen-command-line.pandoc
-@@ -1880,20 +1880,6 @@ with read and write permissions.
- 
- Choose the default scheduler.
+@@ -1962,20 +1962,6 @@ Choose the default scheduler. Note the d
+ Kconfig and depends on enabled schedulers. Check
+ `CONFIG_SCHED_DEFAULT` to see which scheduler is the default.
  
 -### sched_credit2_max_cpus_runqueue
 -> `= <integer>`

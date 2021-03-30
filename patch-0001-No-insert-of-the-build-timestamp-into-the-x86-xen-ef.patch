@@ -18,14 +18,14 @@ diff --git a/xen/arch/x86/Makefile b/xen/arch/x86/Makefile
 index b388861679..f5a529afd5 100644
 --- a/xen/arch/x86/Makefile
 +++ b/xen/arch/x86/Makefile
-@@ -170,6 +170,7 @@ EFI_LDFLAGS += --major-image-version=$(XEN_VERSION)
+@@ -188,6 +188,7 @@ EFI_LDFLAGS += --major-image-version=$(XEN_VERSION)
  EFI_LDFLAGS += --minor-image-version=$(XEN_SUBVERSION)
  EFI_LDFLAGS += --major-os-version=2 --minor-os-version=0
  EFI_LDFLAGS += --major-subsystem-version=2 --minor-subsystem-version=0
 +EFI_LDFLAGS += --no-insert-timestamp
- 
- # Check if the compiler supports the MS ABI.
- export XEN_BUILD_EFI := $(shell $(CC) $(XEN_CFLAGS) -c efi/check.c -o efi/check.o 2>/dev/null && echo y)
+ # It seems ld unfortunately can't set a custom timestamp, so add a zero value
+ # for the timestamp (option --no-insert-timestamp) if SOURCE_DATE_EPOCH is
+ # defined to make reproducible builds possible.
 -- 
 2.26.2
 
