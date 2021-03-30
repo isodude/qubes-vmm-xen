@@ -16,8 +16,8 @@ Signed-off-by: Juergen Gross <jgross@suse.com>
 
 diff --git a/tools/libs/light/libxl_dom_suspend.c b/tools/libs/light/libxl_dom_suspend.c
 index 25d1571895..f7823bbc8f 100644
---- a/tools/libxl/libxl_dom_suspend.c
-+++ b/tools/libxl/libxl_dom_suspend.c
+--- a/tools/libs/light/libxl_dom_suspend.c
++++ b/tools/libs/light/libxl_dom_suspend.c
 @@ -630,12 +630,13 @@ void libxl__domain_resume(libxl__egc *egc,
          goto out;
      }

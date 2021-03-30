@@ -7,13 +7,13 @@ Subject: [PATCH] Fix IGD passthrough with linux stubdomain
 - Give permission for opregions
 - Map vbios to stubdom
 ---
- tools/libxl/libxl_pci.c | 154 +++++++++++++++++++++++++++++++++-------
+ tools/libs/light/libxl_pci.c | 154 +++++++++++++++++++++++++++++++++-------
  1 file changed, 127 insertions(+), 27 deletions(-)
 
-diff --git a/tools/libxl/libxl_pci.c b/tools/libxl/libxl_pci.c
+diff --git a/tools/libs/light/libxl_pci.c b/tools/libs/light/libxl_pci.c
 index 957ff5c8e9..6feab9602e 100644
---- a/tools/libxl/libxl_pci.c
-+++ b/tools/libxl/libxl_pci.c
+--- a/tools/libs/light/libxl_pci.c
++++ b/tools/libs/light/libxl_pci.c
 @@ -2441,17 +2441,128 @@ void libxl__device_pci_destroy_all(libxl__egc *egc, uint32_t domid,
      }
  }

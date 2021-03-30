@@ -19,16 +19,16 @@ Signed-off-by: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
 Ported to Xen 4.7.0
 Signed-off-by: Marcus of Wetware Labs <marcus@wetwa.re>
 ---
- tools/libxl/libxl.c       | 29 +++++++++++++++++++++--------
- tools/libxl/xl.h          |  2 ++
- tools/libxl/xl_cmdimpl.c  | 47 +++++++++++++++++++++++++++++++++++++++++++++++
- tools/libxl/xl_cmdtable.c | 10 ++++++++++
+ tools/libs/light/libxl.c       | 29 +++++++++++++++++++++--------
+ tools/libs/light/xl.h          |  2 ++
+ tools/libs/light/xl_cmdimpl.c  | 47 +++++++++++++++++++++++++++++++++++++++++++++++
+ tools/libs/light/xl_cmdtable.c | 10 ++++++++++
  4 files changed, 80 insertions(+), 8 deletions(-)
 
-diff --git a/tools/libxl/libxl.c b/tools/libxl/libxl.c
+diff --git a/tools/libs/light/libxl.c b/tools/libs/light/libxl.c
 index d38d0c7..ef3c79f 100644
---- a/tools/libxl/libxl.c
-+++ b/tools/libxl/libxl.c
+--- a/tools/libs/light/libxl.c
++++ b/tools/libs/light/libxl.c
 @@ -954,9 +954,11 @@ static void domain_suspend_cb(libxl__egc *egc,
      STATE_AO_GC(dss->ao);
      int flrc;
@@ -44,8 +44,8 @@ index d38d0c7..ef3c79f 100644
  
      libxl__ao_complete(egc,ao,rc);
  
---- xen-4.7.0/tools/libxl/libxl.c.orig	2016-07-17 20:24:05.484000000 +0300
-+++ xen-4.7.0/tools/libxl/libxl.c	2016-07-17 21:01:58.717000000 +0300
+--- xen-4.7.0/tools/libs/light/libxl.c.orig	2016-07-17 20:24:05.484000000 +0300
++++ xen-4.7.0/tools/libs/light/libxl.c	2016-07-17 21:01:58.717000000 +0300
 @@ -934,6 +934,13 @@
  
  }
@@ -117,10 +117,10 @@ index d38d0c7..ef3c79f 100644
      return AO_INPROGRESS;
  
   out_err:
-diff --git a/tools/libxl/xl.h b/tools/libxl/xl.h
+diff --git a/tools/libs/light/xl.h b/tools/libs/light/xl.h
 index 13bccba..8f36a44 100644
---- a/tools/libxl/xl.h
-+++ b/tools/libxl/xl.h
+--- a/tools/libs/light/xl.h
++++ b/tools/libs/light/xl.h
 @@ -48,6 +48,8 @@ int main_restore(int argc, char **argv);
  int main_migrate_receive(int argc, char **argv);
  int main_save(int argc, char **argv);
@@ -130,10 +130,10 @@ index 13bccba..8f36a44 100644
  #endif
  int main_dump_core(int argc, char **argv);
  int main_pause(int argc, char **argv);
-diff --git a/tools/libxl/xl_cmdimpl.c b/tools/libxl/xl_cmdimpl.c
+diff --git a/tools/libs/light/xl_cmdimpl.c b/tools/libs/light/xl_cmdimpl.c
 index 9a2870e..83e9a5b 100644
---- a/tools/libxl/xl_cmdimpl.c
-+++ b/tools/libxl/xl_cmdimpl.c
+--- a/tools/libs/light/xl_cmdimpl.c
++++ b/tools/libs/light/xl_cmdimpl.c
 @@ -4096,6 +4096,27 @@ static int save_domain(uint32_t domid, const char *filename, int checkpoint,
      exit(rc < 0 ? EXIT_FAILURE : EXIT_SUCCESS);
  }
@@ -195,10 +195,10 @@ index 9a2870e..83e9a5b 100644
  int main_list(int argc, char **argv)
  {
      int opt;
-diff --git a/tools/libxl/xl_cmdtable.c b/tools/libxl/xl_cmdtable.c
+diff --git a/tools/libs/light/xl_cmdtable.c b/tools/libs/light/xl_cmdtable.c
 index 0071f12..12e28eb 100644
---- a/tools/libxl/xl_cmdtable.c
-+++ b/tools/libxl/xl_cmdtable.c
+--- a/tools/libs/light/xl_cmdtable.c
++++ b/tools/libs/light/xl_cmdtable.c
 @@ -75,6 +75,16 @@ struct cmd_spec cmd_table[] = {
        "                        no PV drivers.\n"
        "-w, --wait              Wait for guest(s) to shutdown.\n"

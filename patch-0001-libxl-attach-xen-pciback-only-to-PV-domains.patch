@@ -18,13 +18,13 @@ passthrough.
 
 Signed-off-by: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
 ---
- tools/libxl/libxl_pci.c | 5 +++--
+ tools/libs/light/libxl_pci.c | 5 +++--
  1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/tools/libxl/libxl_pci.c b/tools/libxl/libxl_pci.c
+diff --git a/tools/libs/light/libxl_pci.c b/tools/libs/light/libxl_pci.c
 index 8395352..7971160 100644
---- a/tools/libxl/libxl_pci.c
-+++ b/tools/libxl/libxl_pci.c
+--- a/tools/libs/light/libxl_pci.c
++++ b/tools/libs/light/libxl_pci.c
 @@ -1113,7 +1113,7 @@ out:
          }
      }

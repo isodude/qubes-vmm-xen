@@ -18,13 +18,13 @@ device attached.
 
 Signed-off-by: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
 ---
- tools/libxl/libxl_pci.c | 24 +++++++++++++++---------
+ tools/libs/light/libxl_pci.c | 24 +++++++++++++++---------
  1 file changed, 15 insertions(+), 9 deletions(-)
 
-diff --git a/tools/libxl/libxl_pci.c b/tools/libxl/libxl_pci.c
+diff --git a/tools/libs/light/libxl_pci.c b/tools/libs/light/libxl_pci.c
 index 77d9d02..1087f1a 100644
---- a/tools/libxl/libxl_pci.c
-+++ b/tools/libxl/libxl_pci.c
+--- a/tools/libs/light/libxl_pci.c
++++ b/tools/libs/light/libxl_pci.c
 @@ -151,14 +151,18 @@ static int libxl__device_pci_add_xenstore(libxl__gc *gc, uint32_t domid, libxl_d
      GCNEW(device);
      libxl__device_from_pcidev(gc, domid, pcidev, device);

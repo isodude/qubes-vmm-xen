@@ -15,13 +15,13 @@ This reverts commit e885362ccbec19321874abb74e2d317193f45ce5.
 
 Signed-off-by: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
 ---
- tools/libxl/libxl.c | 15 +++++++++++++++
+ tools/libs/light/libxl.c | 15 +++++++++++++++
  1 file changed, 15 insertions(+)
 
-diff --git a/tools/libxl/libxl.c b/tools/libxl/libxl.c
+diff --git a/tools/libs/light/libxl.c b/tools/libs/light/libxl.c
 index 5cca657..71f79f4 100644
---- a/tools/libxl/libxl.c
-+++ b/tools/libxl/libxl.c
+--- a/tools/libs/light/libxl.c
++++ b/tools/libs/light/libxl.c
 @@ -2237,6 +2237,21 @@ static void device_disk_add(libxl__egc *egc, uint32_t domid,
                                           libxl__xen_script_dir_path());
                  flexarray_append_pair(back, "script", script);

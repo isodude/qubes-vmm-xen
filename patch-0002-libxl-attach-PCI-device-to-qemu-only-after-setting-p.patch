@@ -16,13 +16,13 @@ only after confirming that pciback/front is running.
 
 Signed-off-by: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
 ---
- tools/libxl/libxl_pci.c | 9 +++++++++
+ tools/libs/light/libxl_pci.c | 9 +++++++++
  1 file changed, 9 insertions(+)
 
-diff --git a/tools/libxl/libxl_pci.c b/tools/libxl/libxl_pci.c
+diff --git a/tools/libs/light/libxl_pci.c b/tools/libs/light/libxl_pci.c
 index 2942772..d3cf843 100644
---- a/tools/libxl/libxl_pci.c
-+++ b/tools/libxl/libxl_pci.c
+--- a/tools/libs/light/libxl_pci.c
++++ b/tools/libs/light/libxl_pci.c
 @@ -1084,6 +1084,7 @@ int libxl__device_pci_add(libxl__gc *gc, uint32_t domid, libxl_device_pci *pcide
  {
      libxl_ctx *ctx = libxl__gc_owner(gc);

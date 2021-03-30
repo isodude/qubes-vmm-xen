@@ -25,17 +25,17 @@ Changes in v3:
 Signed-off-by: Marek Marczykowski <marmarek@invisiblethingslab.com>
 Signed-off-by: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
 ---
- tools/libxl/libxl.c          |  13 +++-
- tools/libxl/libxl_device.c   |  10 ++++
- tools/libxl/libxl_internal.h |   9 +++
- tools/libxl/libxl_linux.c    | 138 ++++++++++++++++++++++++++++++++++++++++++-
- tools/libxl/libxl_netbsd.c   |  11 ++++
+ tools/libs/light/libxl.c          |  13 +++-
+ tools/libs/light/libxl_device.c   |  10 ++++
+ tools/libs/light/libxl_internal.h |   9 +++
+ tools/libs/light/libxl_linux.c    | 138 ++++++++++++++++++++++++++++++++++++++++++-
+ tools/libs/light/libxl_netbsd.c   |  11 ++++
  5 files changed, 179 insertions(+), 2 deletions(-)
 
-diff --git a/tools/libxl/libxl.c b/tools/libxl/libxl.c
+diff --git a/tools/libs/light/libxl.c b/tools/libs/light/libxl.c
 index 2d29ad2..e5672e5 100644
---- a/tools/libxl/libxl.c
-+++ b/tools/libxl/libxl.c
+--- a/tools/libs/light/libxl.c
++++ b/tools/libs/light/libxl.c
 @@ -2132,7 +2132,18 @@ static void device_disk_add(libxl__egc *egc, uint32_t domid,
                  if (!disk->script &&
                      disk->backend_domid == LIBXL_TOOLSTACK_DOMID) {
@@ -56,10 +56,10 @@ index 2d29ad2..e5672e5 100644
                          flexarray_append_pair(back, "physical-device",
                                                GCSPRINTF("%x:%x", major, minor));
                  }
-diff --git a/tools/libxl/libxl_device.c b/tools/libxl/libxl_device.c
+diff --git a/tools/libs/light/libxl_device.c b/tools/libs/light/libxl_device.c
 index ba7d100..6b2517b 100644
---- a/tools/libxl/libxl_device.c
-+++ b/tools/libxl/libxl_device.c
+--- a/tools/libs/light/libxl_device.c
++++ b/tools/libs/light/libxl_device.c
 @@ -954,6 +954,7 @@ static void device_hotplug(libxl__egc *egc, libxl__ao_device *aodev)
      STATE_AO_GC(aodev->ao);
      libxl__async_exec_state *aes = &aodev->aes;
@@ -84,10 +84,10 @@ index ba7d100..6b2517b 100644
          LOG(DEBUG, "No hotplug script to execute");
          goto out;
      case 1:
-diff --git a/tools/libxl/libxl_internal.h b/tools/libxl/libxl_internal.h
+diff --git a/tools/libs/light/libxl_internal.h b/tools/libs/light/libxl_internal.h
 index 9d17586..8634f71 100644
---- a/tools/libxl/libxl_internal.h
-+++ b/tools/libxl/libxl_internal.h
+--- a/tools/libs/light/libxl_internal.h
++++ b/tools/libs/light/libxl_internal.h
 @@ -1070,6 +1070,15 @@ static inline void libxl__domaindeathcheck_stop(libxl__gc *gc,
   */
  _hidden int libxl__try_phy_backend(mode_t st_mode);
@@ -104,10 +104,10 @@ index 9d17586..8634f71 100644
  
  _hidden char *libxl__devid_to_localdev(libxl__gc *gc, int devid);
  
-diff --git a/tools/libxl/libxl_linux.c b/tools/libxl/libxl_linux.c
+diff --git a/tools/libs/light/libxl_linux.c b/tools/libs/light/libxl_linux.c
 index ea5d8c1..a0bf8d8 100644
---- a/tools/libxl/libxl_linux.c
-+++ b/tools/libxl/libxl_linux.c
+--- a/tools/libs/light/libxl_linux.c
++++ b/tools/libs/light/libxl_linux.c
 @@ -16,16 +16,152 @@
  #include "libxl_osdeps.h" /* must come before any other headers */
  
@@ -261,10 +261,10 @@ index ea5d8c1..a0bf8d8 100644
  char *libxl__devid_to_localdev(libxl__gc *gc, int devid)
  {
      return libxl__devid_to_vdev(gc, devid);
-diff --git a/tools/libxl/libxl_netbsd.c b/tools/libxl/libxl_netbsd.c
+diff --git a/tools/libs/light/libxl_netbsd.c b/tools/libs/light/libxl_netbsd.c
 index 898e160..1e71572 100644
---- a/tools/libxl/libxl_netbsd.c
-+++ b/tools/libxl/libxl_netbsd.c
+--- a/tools/libs/light/libxl_netbsd.c
++++ b/tools/libs/light/libxl_netbsd.c
 @@ -25,6 +25,17 @@ int libxl__try_phy_backend(mode_t st_mode)
      return 0;
  }
